@@ -1,5 +1,5 @@
 {
-  "name": "ednew_web",
+  "name": "web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,7 +19,6 @@
     "qingwa": "^1.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "serverapi": "workspace:^",
     "vite": "4",
     "vite-plugin-html-config": "^1.0.11",
     "vite-tsconfig-paths": "^4.3.2",
