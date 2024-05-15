@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "idg_ml": {
+      "type": "number"
+    },
+    "id_from": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "publicremark": {
+      "type": "number"
+    },
+    "privateremark": {
+      "type": "number"
+    },
+    "uptimestamp": {
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
