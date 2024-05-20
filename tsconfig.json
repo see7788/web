@@ -20,6 +20,6 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src","VITE_define.ts", "../electron-vite/src/renderer/src/component"],
+  "include": ["src","VITE_define.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

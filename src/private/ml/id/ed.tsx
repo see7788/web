@@ -1,12 +1,12 @@
 import React, { FC } from "react"
 import { Form, Button, Input, } from "antd";
-import {ml_t as T} from "../../store/ts"
+import { ml_t as T } from "../../store/ts"
 interface api_t {
     set: (id: number, info: Partial<Omit<T, "id" | "uptimestamp">>) => Promise<any>
     add: (set: Omit<T, "id" | "uptimestamp">) => Promise<any>
-    closeDrawer: () => void
+    onSubmit?: () => void
 }
-export interface param_t{
+export interface param_t {
     api: api_t
     db: T
 }
@@ -39,7 +39,7 @@ const Def: FC<param_t> = ({ db, api }) => {
                         name,
                         remark
                     }
-                )).then(() => api.closeDrawer())}>
+                )).then(api.onSubmit)}>
                 改
             </Button>
             <Button htmlType="submit" onClick={() => usefrom.validateFields()
@@ -47,7 +47,7 @@ const Def: FC<param_t> = ({ db, api }) => {
                     id_parent: db.id_parent,
                     name,
                     remark
-                })).then(() => api.closeDrawer())}>
+                })).then(api.onSubmit)}>
                 +弟
             </Button>
             <Button htmlType="submit" onClick={() => usefrom.validateFields()
@@ -55,7 +55,7 @@ const Def: FC<param_t> = ({ db, api }) => {
                     id_parent: db.id,
                     name,
                     remark
-                })).then(() => api.closeDrawer())}>
+                })).then(api.onSubmit)}>
                 +子
             </Button>
         </Form.Item>

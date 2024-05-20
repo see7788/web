@@ -12,6 +12,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "@egjs/infinitegrid": "^4.11.1",
     "@egjs/react-infinitegrid": "^4.11.1",
     "@electron-toolkit/preload": "^3.0.1",
     "@jsonforms/material-renderers": "^3.2.1",
@@ -19,8 +21,11 @@
     "@rjsf/core": "^5.18.3",
     "@rjsf/utils": "^5.18.3",
     "@rjsf/validator-ajv8": "^5.18.3",
+    "@types/react-scroll": "^1.8.10",
     "antd": "^5.16.4",
     "dayjs": "1.10.6",
+    "immer": "^10.1.1",
+    "ipc": "workspace:^",
     "lodash": "^4.17.21",
     "qingwa": "^1.0.7",
     "react": "^18.2.0",
@@ -39,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "curd": "workspace:^",
     "typescript": "^5.2.2"
   }
 }

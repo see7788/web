@@ -1,4 +1,4 @@
-import type { Mysql2 } from 'curd/src'
+import type { Curd } from 'curd/src/mysql2'
 export type ml_t={
     id: number
     id_parent: number
@@ -20,6 +20,6 @@ export type Tables_t = {
     pro:pro_t
 }
 
-export interface edapi_t extends Pick<Mysql2<Tables_t>, "deleteApi" | "selectApi" | "updateApi" | "insertApi"> {
-    opendirApi: (str: string) => Promise<void | string>
+export interface edapi_t extends Curd<Tables_t> {
+    showItemInFolder: (arr: Array<string|number>) => Promise<any>
 }

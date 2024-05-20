@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, Fragment } from "react"
+import React, { FC, useState, useEffect, Fragment, useMemo } from "react"
 export interface DB_t {
     id: number
     id_parent: number
@@ -7,18 +7,19 @@ export interface DB_t {
 export interface useArrToTeee_param_t<T extends DB_t> {
     dbs: T[]
     startId?: number,
-    expandDef?: number[]
 }
 
-export default function useArrToTeee<T extends DB_t>({ dbs, startId,expandDef }: useArrToTeee_param_t<T>) {
+export default function useArrToTeee<T extends DB_t>({ dbs, startId }: useArrToTeee_param_t<T>) {
     interface TreeDb_t<T extends DB_t> {
         db: T
         key: T["id"]//Tree需要
         children: TreeDb_t<T>[]
         parentNodes: number[]
     }
-    const [treeData, treeDataSet] = useState<TreeDb_t<T>[]>([])
-    const [expanded, expandedSet] = useState<number[]>([])
+    // const [treeData, treeDataSet] = useState<TreeDb_t<T>[]>([])
+    // useEffect(() => {
+    //     treeDataSet(arrayobjectToTree(dbs, startId || 1, [startId || 1]))
+    // }, [dbs, startId])
     function arrayobjectToTree<T extends DB_t>(db: T[], id_parent: T["id_parent"], clickArr: TreeDb_t<T>["parentNodes"]): TreeDb_t<T>[] {
         const newDb: T[] = []
         const arrobj = db.filter((v, index) => {
@@ -41,9 +42,7 @@ export default function useArrToTeee<T extends DB_t>({ dbs, startId,expandDef }:
             }) :
             [];
     }
-    useEffect(() => {
-        treeDataSet(arrayobjectToTree(dbs, startId || 1, [startId || 1]))
-        expandedSet(expandDef||[1])
-    }, [dbs, startId])
-    return {treeData,expanded, expandedSet}
+    const treeData = useMemo(() => arrayobjectToTree(dbs, startId || 1, [startId || 1]), [dbs, startId])
+
+    return treeData
 }

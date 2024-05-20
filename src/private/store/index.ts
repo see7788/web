@@ -13,6 +13,7 @@ export default create<Store_t>()(immer<Store_t>((seter, geter) => {
     return {
         ipc: new Ipc((op) => {
             seter(s => {
+                console.log(op)
                 if (typeof op === "string") {
                     notification.warning({
                         message: op,
